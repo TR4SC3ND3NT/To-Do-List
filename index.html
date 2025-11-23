@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass To-Do List</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <!-- Экран Авторизации -->
+    <div id="auth-container" class="glass-container auth-view">
+        <h2>Добро пожаловать</h2>
+        <p>Войдите или зарегистрируйтесь, чтобы управлять задачами</p>
+        <form id="auth-form">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Пароль" required>
+            <div class="auth-buttons">
+                <button type="submit" id="login-btn" class="btn primary">Войти</button>
+                <button type="button" id="signup-btn" class="btn secondary">Регистрация</button>
+            </div>
+        </form>
+        <p id="auth-message" class="message"></p>
+    </div>
+
+    <!-- Основное Приложение (скрыто по умолчанию) -->
+    <div id="app-container" class="glass-container app-view hidden">
+        <header>
+            <h1>Мои Задачи</h1>
+            <button id="logout-btn" class="btn-icon" title="Выйти">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </header>
+
+        <!-- Панель управления -->
+        <div class="controls">
+            <button id="add-new-btn" class="btn-large">Добавить задачу</button>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="active">Активные</button>
+                <button class="filter-btn" data-filter="completed">Готовые</button>
+            </div>
+        </div>
+
+        <!-- Список задач (Шапка таблицы) -->
+        <div class="list-header">
+            <span>Задача</span>
+            <span>Статус</span>
+            <span>Действия</span>
+        </div>
+
+        <!-- Контейнер задач -->
+        <div id="todo-list" class="todo-list">
+            <!-- Задачи будут здесь -->
+            <div class="loading">Загрузка...</div>
+        </div>
+
+        <!-- Футер списка -->
+        <div class="list-footer">
+            <span id="items-left">0 задач осталось</span>
+            <button id="clear-completed" class="text-btn">Очистить выполненные</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно (Добавление/Редактирование) -->
+    <div id="modal" class="modal hidden">
+        <div class="glass-container modal-content">
+            <h2 id="modal-title">Новая задача</h2>
+            
+            <div class="form-group">
+                <label>Название задачи:</label>
+                <input type="text" id="task-input" placeholder="Например: Купить продукты">
+            </div>
+
+            <!-- Поскольку в БД только task, описание и прочее опускаем для простоты, 
+                 но визуально оставляем стиль -->
+
+            <div class="modal-buttons">
+                <button id="save-task-btn" class="btn primary">Сохранить</button>
+                <button id="cancel-task-btn" class="btn secondary">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

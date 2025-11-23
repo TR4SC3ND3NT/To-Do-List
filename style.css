@@ -1,0 +1,194 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-white: #ffffff;
+    --text-dim: #e0e0e0;
+    --primary-btn: #4a90e2;
+    --danger: #ff6b6b;
+    --success: #51cf66;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    padding: 20px;
+}
+
+/* --- Glassmorphism Container --- */
+.glass-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 2rem;
+    width: 100%;
+}
+
+.auth-view { max-width: 400px; text-align: center; }
+.app-view { max-width: 900px; min-height: 600px; display: flex; flex-direction: column; }
+.hidden { display: none !important; }
+
+/* --- Auth --- */
+.auth-view h2 { margin-bottom: 10px; }
+.auth-view p { margin-bottom: 20px; font-size: 0.9rem; opacity: 0.8; }
+input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    background: rgba(255,255,255, 0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
+input::placeholder { color: rgba(255,255,255,0.6); }
+
+/* --- Buttons --- */
+.auth-buttons { display: flex; gap: 10px; }
+.btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.btn.primary { background: var(--primary-btn); color: white; }
+.btn.primary:hover { background: #357abd; }
+.btn.secondary { background: rgba(255,255,255,0.2); color: white; }
+.btn.secondary:hover { background: rgba(255,255,255,0.3); }
+
+/* --- App Header & Controls --- */
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.btn-icon { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; opacity: 0.7; }
+.btn-icon:hover { opacity: 1; }
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.btn-large {
+    background: rgba(255,255,255,0.25);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+.btn-large:hover { background: rgba(255,255,255,0.4); }
+
+.filters {
+    background: rgba(0,0,0,0.2);
+    border-radius: 30px;
+    padding: 5px;
+    display: flex;
+}
+.filter-btn {
+    background: none;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.filter-btn.active { background: var(--primary-btn); color: white; }
+
+/* --- List --- */
+.list-header {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    padding: 0 15px 10px 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.todo-list { flex-grow: 1; overflow-y: auto; max-height: 400px; margin-bottom: 20px; }
+.todo-item {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: 0.2s;
+}
+.todo-item:hover { background: rgba(255,255,255,0.05); }
+
+.task-text { word-break: break-word; }
+.completed .task-text { text-decoration: line-through; opacity: 0.5; }
+
+/* Checkbox Styling */
+.status-check {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--success);
+}
+
+.actions button {
+    background: none;
+    border: none;
+    color: white;
+    opacity: 0.6;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+.actions button:hover { opacity: 1; }
+.actions .delete-btn:hover { color: var(--danger); }
+
+/* --- Footer --- */
+.list-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.text-btn { background: none; border: none; color: white; cursor: pointer; text-decoration: underline; opacity: 0.7; }
+.text-btn:hover { opacity: 1; }
+
+/* --- Modal --- */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.modal-content { max-width: 500px; }
+.modal-buttons { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .controls { flex-direction: column; }
+    .btn-large { width: 100%; }
+    .filters { width: 100%; justify-content: space-between; }
+    .list-header, .todo-item { display: flex; flex-direction: column; gap: 10px; }
+    .todo-item { align-items: flex-start; background: rgba(0,0,0,0.1); margin-bottom: 10px; border-radius: 8px; }
+}
