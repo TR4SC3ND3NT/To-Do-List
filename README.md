@@ -67,6 +67,8 @@ cd todo-list
 - RLS политики настроены
 - Foreign key на `auth.users.id` установлен
 
+<img width="1316" height="562" alt="screenshot-20251204-154333" src="https://github.com/user-attachments/assets/4c76af17-3c3e-45b0-9f90-c751bed26a5e" />
+
 ## 🔐 Авторизация
 
 ### Для тестирования:
@@ -146,7 +148,8 @@ supabase.auth.signOut()
 3. **Ошибки загрузки задач**
    - Проверь подключение к интернету
    - Убедись что RLS политики настроены правильно
-  
+  ![Uploading screenshot-20251204-154333.png…]()
+
 4. **Ссылка на презентацию**
    https://www.canva.com/design/DAG6iH7rPu0/S3E7QRSFKLk80Prwt-ag5Q/view?utm_content=DAG6iH7rPu0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hbb8f671d44
 
