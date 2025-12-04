@@ -52,7 +52,7 @@ const SUPABASE_KEY = 'sb_publishable_W3Xe_Qgcv-LD84TjaJ7QaA_1EkFrOwA'
 
 1. **Клонируй репозиторий**
 ```bash
-git clone <repository-url>
+git clone https://github.com/TR4SC3ND3NT/To-Do-List.git
 cd todo-list
 ```
 
@@ -62,7 +62,7 @@ cd todo-list
 # Или используй Live Server в VS Code
 ```
 
-3. **Настройка БД (уже сделано)**
+3. **Настройка БД**
 - Таблица `todos` создана
 - RLS политики настроены
 - Foreign key на `auth.users.id` установлен
@@ -146,6 +146,9 @@ supabase.auth.signOut()
 3. **Ошибки загрузки задач**
    - Проверь подключение к интернету
    - Убедись что RLS политики настроены правильно
+  
+4. **Ссылка на презентацию**
+   https://www.canva.com/design/DAG6iH7rPu0/S3E7QRSFKLk80Prwt-ag5Q/view?utm_content=DAG6iH7rPu0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hbb8f671d44
 
 ## 📞 Поддержка
 
